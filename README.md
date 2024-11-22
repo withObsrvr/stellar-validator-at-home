@@ -171,6 +171,27 @@ HISTORY_ARCHIVE_URLS="https://history.stellar.org/prd/core-live/core_live_001/{0
 
 **Note:** Replace `YOUR_NODE_SEED` with your actual node seed. Keep this seed secure and do not share it.
 
+
+### SSL Certificate Setup
+
+1. Edit the `init-letsencrypt.sh` script and update:
+   - Your domain name
+   - Your email address
+   - Set staging=1 for testing, staging=0 for production
+
+2. Make the script executable and run it:
+   ```bash
+   chmod +x init-letsencrypt.sh
+   ./init-letsencrypt.sh
+   ```
+
+3. Verify SSL certificate installation:
+   ```bash
+   curl https://your-domain.com
+   ```
+
+The certificates will automatically renew every 60 days.
+
 ---
 
 ## Running the Validator
