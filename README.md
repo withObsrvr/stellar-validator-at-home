@@ -133,6 +133,7 @@ docker run stellar/stellar-core:latest gen-seed
 
 This command will output something like:
 
+```
 Secret seed: SDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 Public: GDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
