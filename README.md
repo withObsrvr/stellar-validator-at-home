@@ -115,6 +115,31 @@ Edit the `.env` file:
 nano .env
 ```
 
+### 3. Configure Stellar Core
+
+Copy the example environment file and customize it:
+
+```bash
+cp .env.example .env
+```
+
+
+Generate a node seed (this will be your validator's unique identity):
+
+```bash
+docker run stellar/stellar-core:latest gen-seed
+```
+
+
+This command will output something like:
+
+Secret seed: SDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Public: GDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+Copy the output seed and paste it into the `.env` file where it says `NODE_SEED=`.
+
 **Environment Variables:**
 
 - `NODE_SEED`: Your node's secret seed (keep this secure).
