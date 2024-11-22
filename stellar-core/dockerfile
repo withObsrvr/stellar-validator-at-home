@@ -1,0 +1,19 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && apt-get install -y \
+    curl \
+    wget \
+    gnupg2 \
+    apt-transport-https \
+    && wget -qO /etc/apt/trusted.gpg.d/SDF.asc https://apt.stellar.org/SDF.asc \
+    && echo "deb https://apt.stellar.org focal stable" | tee -a /etc/apt/sources.list.d/SDF.list \
+    && apt-get update \
+    && apt-get install -y stellar-core \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY config/stellar-core.cfg /etc/stellar-core.cfg
+
+EXPOSE 11625 11626
+
+CMD ["stellar-core", "--conf", "/etc/stellar-core.cfg"]
